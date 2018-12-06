@@ -1,0 +1,9 @@
+#nix:
+#  enable: true
+#  packages:
+#    - ftgl
+packages:
+- .
+extra-deps:
+- FTGL-2.1
+resolver: lts-12.21

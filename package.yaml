@@ -1,0 +1,61 @@
+name:                chess
+version:             0.1.0.0
+github:              "puvar/chess"
+license:             MIT
+author:              "Pavel Uvarov"
+maintainer:          "puvar@puvar.net"
+copyright:           "2018 Pavel Uvarov"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/puvar/chess#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  chess:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -O3
+    - -Wall
+    dependencies:
+    - chess
+    - GLFW-b # == 3.2.*
+    - OpenGL # == 3.0.*
+    - FTGL
+    - base < 5
+    - mtl == 2.2.*
+    - pretty == 1.1.*
+    - stm == 2.4.*
+    - transformers == 0.5.*
+    - containers
+    - cond
+    - random
+
+tests:
+  chess-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - chess
